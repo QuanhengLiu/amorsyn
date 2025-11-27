@@ -12,10 +12,7 @@ This project is a fork of the original research code used for simulating extrude
 
 ---
 
-## My Contributions (Key Highlights)
-
-> **Note to Recruiters:**
-> I transformed the original data generation script into a full-fledged **Optimization & Analysis Framework**.
+## Key Highlights
 
 Compared to the original codebase, I have implemented the following major modules:
 
@@ -74,7 +71,6 @@ pip install -r requirements.txt
 To find the best parameters that match a target curve:
 
 ```bash
-# Note: Edit configuration paths in o.py main() function first if needed
 python o.py
 ```
 
