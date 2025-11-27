@@ -98,13 +98,8 @@ This project follows the license of the original repository.
 
 -----
 
------
-
 # Below is the Original README from the Author
 
-
-```
-```
 # Amortized Synthesis of Constrained Configurations Using a Differentiable Surrogate
 
 This repository is the implementation of 
