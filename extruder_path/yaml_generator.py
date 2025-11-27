@@ -8,7 +8,7 @@ from extruder_path.random_path_generator import random_jordan_curve
 from repo_dir import get_repo_dir
 
 
-def chirp_path(config, A, a, b, c, xFrom, xTo, pathDiscreRes):
+def chirp_path(config, A, a, b, c, xFrom, xTo, pathDiscreRes):#生成打印机的扫频轨迹
     config['printerPathX'], config['printerPathY'], config['printerPathZ'] = [], [], []
     for i in range(pathDiscreRes):
         x = xFrom + (xTo - xFrom) / (pathDiscreRes - 1.) * i
@@ -17,7 +17,7 @@ def chirp_path(config, A, a, b, c, xFrom, xTo, pathDiscreRes):
         config['printerPathZ'].append(y)
 
 
-def update_dependent_config(config, eps=1e-4):
+def update_dependent_config(config, eps=1e-4):#动态调整打印机和绳索的高度参数，确保路径规划符合物理约束
     config['groundStickyHeightThreshold'] = config['ropeBodyHeight'] / 2. + eps
     config['simulationStopHeightThreshold'] = config['ropeBodyHeight'] / 2. + eps
     config['simulationInitHeightThreshold'] = config['printerOriginY'] - config['printerHeight'] / 2.
@@ -117,7 +117,7 @@ def save_list_file(output_dir, num_samples):
     yml_paths = []
     with open(os.path.join(output_dir, 'list'), 'w') as log:
         for i in range(num_samples):
-            yml_path = os.path.join(output_dir, '{:05d}.yml'.format(i))
+            yml_path = os.path.join(output_dir, '{:05d}.yaml'.format(i))
             rst_path = os.path.join(output_dir, '{:05d}.txt'.format(i))
             log.write(yml_path + ',' + rst_path + '\n')
             yml_paths.append(yml_path)
@@ -138,4 +138,4 @@ def generate_yaml(num_samples, pool_size):
 
 
 if __name__ == '__main__':
-    generate_yaml(num_samples=10000, pool_size=44)
+    generate_yaml(num_samples=1, pool_size=44)

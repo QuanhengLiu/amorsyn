@@ -5,7 +5,7 @@ from repo_dir import get_repo_dir
 
 
 def get_exec_file_path():
-    return 'path/to/printing_simulator'
+    return '/home/liu/桌面/bullet-3d-printing/examples/3DPrinting/3DPrintingGui'
 
 
 def execute_yaml(material):

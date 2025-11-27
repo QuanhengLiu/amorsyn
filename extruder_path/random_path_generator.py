@@ -12,14 +12,14 @@ def get_segments(points):
     segments[2:, :-1, 0] = points[1:, :].T
     segments[:2, -1, 0] = points[0, :]
     return segments
-
+#得到n个首尾相连的线段
 
 def log_like(Y, *args):
     YY = np.reshape(Y, (2, -1)).T
     S = get_segments(YY)
     has_intersection = segment_intersection.query(S[0, :, 0], S[1, :, 0], S[2, :, 0], S[3, :, 0], args[0])
     return -np.inf if has_intersection else 0
-
+#计算一个形状的线段是否自相交
 
 def random_jordan_curve(ls=0.1, N=1000, eps=1e-7):
     np.random.seed()
